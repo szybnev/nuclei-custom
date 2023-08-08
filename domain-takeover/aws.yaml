@@ -1,0 +1,15 @@
+id: aws-s3-bucket-takeover
+info:
+    name: AWS S3 Bucket Takeover Detection
+    author: Sergey Zybnev <https://github.com/szybnev>
+    severity: medium
+requests:
+    - method: GET
+      path:
+          - "{{BaseURL}}"
+      matchers:
+          - type: word
+            part: body
+            words:
+                - "NoSuchBucket"
+                - "The specified bucket does not exist"

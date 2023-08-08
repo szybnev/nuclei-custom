@@ -1,0 +1,17 @@
+id: subdomain-takeover-general
+info:
+    name: General Subdomain Takeover Detection
+    author: Sergey Zybnev <https://github.com/szybnev>
+    severity: medium
+requests:
+    - method: GET
+      path:
+          - "{{BaseURL}}"
+      matchers:
+          - type: word
+            part: body
+            words:
+                - "NoSuchBucket"
+                - "Domain not configured"
+                - "Herokuapp not found"
+                - "Github Pages 404"
