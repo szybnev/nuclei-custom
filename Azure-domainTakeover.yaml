@@ -1,0 +1,15 @@
+id: azure-blob-storage-takeover
+info:
+  name: Azure Blob Storage Takeover Detection
+  author: Sergey Zybnev
+  severity: medium
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "The specified container does not exist"
+          - "Web app not found"
